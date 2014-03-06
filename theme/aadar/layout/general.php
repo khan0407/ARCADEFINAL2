@@ -67,6 +67,51 @@ echo $OUTPUT->doctype() ?>
     <title><?php echo $PAGE->title ?></title>
     <link rel="shortcut icon" href="<?php echo $OUTPUT->pix_url('favicon', 'theme')?>" />
     <?php echo $OUTPUT->standard_head_html() ?>
+
+	<style>
+
+.center
+{
+margin:auto;
+width:100%;
+top: 10px;
+height: 130px;
+}
+
+
+#innerrightinfo {
+	height: 120px;
+	position: absolute;
+	right: 0px;
+	top: 10px;
+}
+
+#innerrightinfo img.userpicture {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border-color: #EEEEEE #DADADA #CCCCCC;
+    border-style: solid solid solid none;
+    border-width: 1px 1px 1px medium;
+    float: right;
+    height: 58px;
+    margin-top: 17px;
+    padding: 8px 8px 17px;
+    width: 48px;
+}
+
+#innerrightinfo div.logininfo {
+    border-right: medium none;
+    float: right;
+    height: 43px;
+    margin-top: 70px;
+    padding: 10px;
+    text-align: center;
+    width: 120px;
+    font-size: 100%;
+    font-weight: 300;
+}
+
+</style>
+
 </head>
 <body id="<?php p($PAGE->bodyid) ?>" class="<?php p($PAGE->bodyclasses.' '.join(' ', $bodyclasses)) ?>">
 <?php echo $OUTPUT->standard_top_of_body_html() ?>
@@ -77,16 +122,45 @@ echo $OUTPUT->doctype() ?>
         <div class="rounded-corner top-left"></div>
         <div class="rounded-corner top-right"></div>
         <?php if ($hasheading) { ?>
-        <h1 class="headermain"><?php echo $PAGE->heading ?></h1>
-        <div class="headermenu"><?php
-            echo $OUTPUT->login_info();
+        <h1 class="headermain">
+
+<img src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQJ1RzzNh7UO3_uBsDGg0j2qFj_DciNFpsqjO0cIPhdc1Ehdwsv">
+ </h1>
+<div class="center"> 
+</br>     
+<h1>ARCADE RSDH </h1>
+<h2>St. John's National Academy of Health Science </h2>
+</div>
+     
+
+          <div>
+             <?php
+		echo "<div id='innerrightinfo'>";
+ 		if (isloggedin())
+                    {
+ 			echo ''.$OUTPUT->user_picture($USER, array('size'=>55)).'';
+ 			}
+ 			else {
+ 			?>
+ 			<img class="userpicture" src="<?php echo $OUTPUT->pix_url('image', 'theme')?>" />
+ 			<?php
+ 			}
+
+		
+
+             echo $OUTPUT->login_info();
           //  if (!empty($PAGE->layout_options['langmenu'])) {
                 echo $OUTPUT->lang_menu();
          //   }
             echo $PAGE->headingmenu
         ?></div><?php } ?>
 
-        <?php if (!empty($courseheader)) { ?>
+        
+
+
+
+
+<?php if (!empty($courseheader)) { ?>
             <div id="course-header"><?php echo $courseheader; ?></div>
         <?php } ?>
         <?php if ($hascustommenu) { ?>
@@ -143,11 +217,37 @@ echo $OUTPUT->doctype() ?>
     <?php } ?>
     <?php if ($hasfooter) { ?>
     <div id="page-footer" class="clearfix">
-        <p class="helplink"><?php echo page_doc_link(get_string('moodledocslink')) ?></p>
+        <p class="helplink">
+
+<p>
+    
+       
+            St. Johns National Academy of Health Science </br>
+         This website is funded by the European Union Seventh Framework program (No. 281930)</br>
+        <?php /*echo page_doc_link(get_string('moodledocslink')) */?>
+&nbsp;&nbsp;       
+<a href="https://facebook.com">
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStNh2xR2VaoVKIngrFPdsp-YAfFQat-l1gjDX5OkYA_mwMh97UOg" >
+&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="https://twitter.com/">
+<img src="http://abstractions.deidreadams.com/wp-content/themes/photocrati-theme/images/social/small-twitter.png">
+&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="https://plus.google.com">
+<img src="http://imaging.ubmmedica.com/all/editorial/icon-google-plus.jpg">
+&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="http://www.linkedin.com/">
+<img src="https://infopeople.org/sites/all/themes/infopeople/social/linkedin.png">
+        </p>
+
+
+
+     </p>
+             
+<?php /*echo page_doc_link(get_string('moodledocslink'))*/ ?></p>
         <?php
-        echo $OUTPUT->login_info();
-        echo $OUTPUT->home_link();
-        echo $OUTPUT->standard_footer_html();
+        /*echo $OUTPUT->login_info();*/
+        /*echo $OUTPUT->home_link();*/
+        /*echo $OUTPUT->standard_footer_html();*/
         ?>
         <div class="rounded-corner bottom-left"></div>
         <div class="rounded-corner bottom-right"></div>
